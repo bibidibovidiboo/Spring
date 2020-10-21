@@ -15,9 +15,9 @@ local.properties
 .recommenders
 /Servers
 /RemoteSystemsTempFiles
-*/target/*
 .project
 .classpath
+/target
 
 # External tool builders
 .externalToolBuilders/
