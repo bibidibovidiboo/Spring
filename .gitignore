@@ -17,7 +17,6 @@ local.properties
 /RemoteSystemsTempFiles
 .project
 .classpath
-/pom.properties
 */target/**
 
 # External tool builders
