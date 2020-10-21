@@ -17,8 +17,8 @@ local.properties
 /RemoteSystemsTempFiles
 .project
 .classpath
+/pom.properties
 */target/**
-
 
 # External tool builders
 .externalToolBuilders/
@@ -72,8 +72,5 @@ local.properties
 ### Eclipse Patch ###
 # Spring Boot Tooling
 .sts4-cache/
-
-# Custom
-OnLineSpringStudy1/target/m2e-wtp/web-resources/META-INF/maven/com.sist/movie/pom.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
