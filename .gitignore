@@ -74,3 +74,4 @@ local.properties
 .sts4-cache/
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
+OnLineSpringStudy1/target/m2e-wtp/web-resources/META-INF/maven/com.sist/movie/pom.properties
