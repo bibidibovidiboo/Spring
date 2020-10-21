@@ -15,6 +15,7 @@ local.properties
 .recommenders
 /Servers
 /RemoteSystemsTempFiles
+\target\m2e-wtp
 
 # External tool builders
 .externalToolBuilders/
