@@ -15,7 +15,6 @@ local.properties
 .recommenders
 /Servers
 /RemoteSystemsTempFiles
-/target/
 
 # External tool builders
 .externalToolBuilders/
