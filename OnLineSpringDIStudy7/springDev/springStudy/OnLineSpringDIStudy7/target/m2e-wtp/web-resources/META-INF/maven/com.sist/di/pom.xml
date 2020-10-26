@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.sist</groupId>
 	<artifactId>di</artifactId>
-	<name>OnLineSpringDIStudy1</name>
+	<name>OnLineSpringDIStudy7</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
@@ -496,4 +496,3 @@
         </plugins>
     </build>
 </project>
-	
