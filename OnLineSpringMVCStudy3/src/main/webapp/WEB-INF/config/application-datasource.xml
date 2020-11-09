@@ -15,17 +15,8 @@
     <!-- DataBase 관련 : JDBC , ORM (MyBatis , Hibernate) , Spring-Data(MongoDB:NoSQL) -->
     <!-- MyBatis연결 -->
     <!-- properties 파일 읽기  -->
-    <util:properties id="db" location="classpath:db.properties"/>
+    <util:properties id="db" location="/WEB-INF/config/db.properties"/>
     <!-- 데이터베이스 연결 정보를 모아서  -->
-   <!--  <bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
-      p:driverClassName="oracle.jdbc.driver.OracleDriver"
-      p:url="jdbc:oracle:thin:@211.238.142.183:1521:XE"
-      p:username="hr"
-      p:password="happy"
-      p:maxActive="20"
-      p:maxIdle="10"
-      p:maxWait="-1"
-    /> -->
     <bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
       p:driverClassName="#{db['driver']}"
       p:url="#{db['url']}"
@@ -41,3 +32,10 @@
      p:configLocation="/WEB-INF/config/Config.xml"
     />
 </beans>
+
+
+
+
+
+
+
