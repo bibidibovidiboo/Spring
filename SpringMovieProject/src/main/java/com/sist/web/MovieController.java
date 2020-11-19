@@ -5,26 +5,38 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-//Model => JSP(HTML(태그형) + Java)
-//JSP(HTML(태그형)) => VIEW
-//JAVA => Model( VO / DAO / Manager)
-//controller : 스프링 안에서 제작되어있음 => 동작 매뉴얼 제작 => xml
+// Model => JSP(HTML(태그형)+Java)
+// JSP(HTML(태그형) => VIEW
+// JAVA => Model (1. VO,2.DAO , 3.Manager)
+// Controller 스프링안에서는 제작 
+// => 작동 (매뉴얼 제작 => XML)
+// 이 클래스는 => Model역할
 import java.util.*;
 import com.sist.manager.*;
-@Controller // model역할
+@Controller
 public class MovieController {
 	@Autowired
-	private MovieManager mgr;
+    private MovieManager mgr;
 	@RequestMapping("movie/main.do")
-	public String movie_main(int no, Model model) 
-	
+	public String movie_main(String no,Model model)
 	{
-		/*if(no==null)
-			no="1"; 		//http://localhost/web/movie/main.do?no=1  ==> ?no=1 없어도 오류나지 않게  */
-		
-		
-		List<MovieVO> list=mgr.jsonAllData(no);
-		model.addAttribute("list",list);
+		if(no==null)
+			no="1";
+		List<MovieVO> list=mgr.jsonAllData(Integer.parseInt(no));
+		model.addAttribute("list", list);
 		return "movie/main";
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

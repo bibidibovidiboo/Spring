@@ -1,14 +1,13 @@
 package com.sist.dao;
-
+// 사용자 정의 데이터형 
 public class StudentVO {
-	private int hakbun;
-	private String name;
-	private int kor;
-	private int eng;
-	private int math;
-	private int total;
-	private double avg;
-	
+  private int hakbun;
+  private String name;
+  private int kor;
+  private int eng;
+  private int math;
+  private int total;
+  private double avg;
 	public int getHakbun() {
 		return hakbun;
 	}
@@ -50,5 +49,7 @@ public class StudentVO {
 	}
 	public void setAvg(double avg) {
 		this.avg = avg;
-	}	
+	}
+  
 }
+

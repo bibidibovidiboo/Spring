@@ -14,7 +14,7 @@ $(function(){
 		data:{"no":1},
 		success:function(result)
 		{
-
+			location.href="main.do?no=1";
 		}
 	})
 });

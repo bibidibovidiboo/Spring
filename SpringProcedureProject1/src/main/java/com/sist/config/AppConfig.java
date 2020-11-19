@@ -13,22 +13,34 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @ComponentScan(basePackages={"com.sist.*"})
 /*
- *    DispatcherServlet ==> HandlerMapping (클래스 찾기)
- *                		==> ViewResolver (JSP찾기)
- * 
+ *   DispatcherServlet ==> HandlerMapping (클래스 찾기)
+ *                     ==> ViewResolver (JSP찾기)
  */
 public class AppConfig implements WebMvcConfigurer{
 
-   @Override
-   public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-      configurer.enable();
-   }
-   @Bean
-   public ViewResolver viewResolver()
-   {
-      InternalResourceViewResolver v=new InternalResourceViewResolver();
-      v.setPrefix("/main/");
-      v.setSuffix(".jsp");
-      return v;
-   }
+	@Override
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+		// TODO Auto-generated method stub
+		configurer.enable();
+	}
+	/*
+	 *   <bean id="viewResolver"
+		       class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		       p:prefix="/main/"
+		       p:suffix=".jsp"
+		    />
+	 */
+    @Bean
+    public ViewResolver viewResolver()
+    {
+    	InternalResourceViewResolver v=new InternalResourceViewResolver();
+    	v.setPrefix("/main/");
+    	v.setSuffix(".jsp");
+    	return v;
+    }
 }
+
+
+
+
+

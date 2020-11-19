@@ -1,47 +1,47 @@
 package com.sist.manager;
 /*
-	"thumbUrl":"/common/mast/movie/2020/10/thumb/thn_4ba51ba9b5f3439ca3d036f6391d58ba.jpg",
-	"movieNm":"도굴",
-	"movieNmEn":"Collectors",
-	"synop":
-	"showTm":"114",
-	"director":"박정배",
-	"prNm":"(주)싸이런픽쳐스",
-	"dtNm":"씨제이이앤엠(주)",
-	"repNationCd":"한국",
-	"movieType":"장편",
-	"moviePrdtStat":"개봉예정",
-	"genre":"범죄",
-	"watchGradeNm":"12세이상관람가",
-	"openDt":"20201104"
-	"rank":1,
-	"rankInten":0,
-	
-	=> .do => Model(requestmapping) <=>  DAO (Manager)
-		 		| request.setAttribute() , model.addAttribute()
-		 	   JSP
-		 	 1. Tiles
-		 	 2. 인터셉트 ==> AOP
-		 	 3. redirectAttribute
-		 	 	 return "redirect:list.do?page=1";
-		 	 4. Profile
-		 	 5. Transaction
+ *   
+     "thumbUrl":"/common/mast/movie/2020/10/thumb/thn_4ba51ba9b5f3439ca3d036f6391d58ba.jpg",
+     "movieNm":"도굴",
+     "movieNmEn":"Collectors",
+     "synop":
+     "showTm":"114",
+     "director":"박정배",
+     "prNm":"(주)싸이런픽쳐스",
+     "dtNm":"씨제이이앤엠(주)",
+     "repNationCd":"한국",
+     "movieType":"장편",
+     "moviePrdtStat":"개봉예정",
+     "genre":"범죄",
+     "watchGradeNm":"12세이상관람가",
+     "openDt":"20201104"
+     "rank":1
+     "rankInten":0
+     
+     => .do  => Model(RequestMapping) <=> DAO(Manager)
+                       | request.setAttribute() , model.addAttribute()
+                      JSP
+                1. Tiles
+                2. 인터셉트  ===> AOP
+                3. RedirectAttribute
+                    return "redirect:list.do?page=1";
+                4. Profile
+                5. Transaction 
  */
 public class MovieVO {
-	private int mno;
-	private int rank;
-	private String title_ko;
-	private String title_en;
-	private String poster;
-	private String director;
-	private String genre;
-	private String grade;
-	private String regdate;
-	private String nation;
-	private String time;
-	private String story;
-	private int rank_id; // increment , decrement
-	
+    private int mno;
+    private int rank;
+    private String title_ko;
+    private String title_en;
+    private String poster;
+    private String director;
+    private String genre;
+    private String grade;
+    private String regdate;
+    private String nation;
+    private String time;
+    private String story;
+    private int rank_id;//increment,decrement;
 	public int getMno() {
 		return mno;
 	}
@@ -120,6 +120,19 @@ public class MovieVO {
 	public void setRank_id(int rank_id) {
 		this.rank_id = rank_id;
 	}
-	
-	
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -26,3 +26,13 @@ public class MovieDAO {
 	   return mapper.movieTop5Hit();
    }
 }
+
+
+
+
+
+
+
+
+
+

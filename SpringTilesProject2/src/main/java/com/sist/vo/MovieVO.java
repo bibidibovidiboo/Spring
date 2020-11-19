@@ -13,6 +13,7 @@ package com.sist.vo;
 	STORY             CLOB          
 	KEY               VARCHAR2(50)  
 	HIT               NUMBER        
+
  */
 public class MovieVO {
     private String poster;
