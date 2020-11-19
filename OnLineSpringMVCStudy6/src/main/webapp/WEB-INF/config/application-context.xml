@@ -14,7 +14,7 @@
      <bean id="dbcon"
         class="com.sist.board.dao.DBConnection"
         c:driver="oracle.jdbc.driver.OracleDriver"
-        c:url="jdbc:oracle:thin:@211.238.142.181:1521:XE"
+        c:url="jdbc:oracle:thin:@211.238.142.204:1521:XE"
         c:username="hr"
         c:password="happy"
      />
@@ -22,7 +22,7 @@
      <!-- 2-1. 데이터베이스 정보를 모운다 -->
      <bean id="ds" class="org.apache.commons.dbcp.BasicDataSource"
        p:driverClassName="oracle.jdbc.driver.OracleDriver"
-       p:url="jdbc:oracle:thin:@211.238.142.181:1521:XE"
+       p:url="jdbc:oracle:thin:@211.238.142.204:1521:XE"
        p:username="hr"
        p:password="happy"
        p:maxActive="20"
