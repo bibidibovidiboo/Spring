@@ -15,7 +15,7 @@
         <div class="col-md-3">
 		    <div class="thumbnail">
 		      <a href="#">
-		        <img src="${vo.poster }" alt="Lights" style="width:100%" class="img-rounded">
+		        <img src="${vo.poster }" alt="Lights" style="width:100%">
 		        <div class="caption">
 		          <p style="font-size:8pt">${vo.title }</p>
 		        </div>

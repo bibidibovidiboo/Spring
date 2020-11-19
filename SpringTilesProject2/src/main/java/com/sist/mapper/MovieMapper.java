@@ -23,6 +23,3 @@ public interface MovieMapper {
    public List<MovieVO> movieTop5Hit();
 }
 
-
-
-
