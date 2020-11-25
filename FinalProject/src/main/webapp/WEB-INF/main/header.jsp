@@ -49,7 +49,7 @@
                         <li>ENG</li>
                     </ul>
                 </li>
-                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
+                <li><a href="../community/login.do">Login</a> <span class="arrow_carrot-down"></span></li>
             </ul>
         </div>
     </div>
@@ -77,7 +77,7 @@
                                             <li>ENG</li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
+                                    <li><a href="../community/login.do">LOGIN</a></li>
                                 </ul>
                             </div>
                             <div class="header__logo">
@@ -119,7 +119,7 @@
                             </li>
                             <li><a href="../recipe/list.do">Blog</a></li>
                             <li><a href="../fight/list.do">Contact</a></li>
-                            <li><a href="#">Community</a></li>
+                            <li><a href="../community/list.do">Community</a></li>
                         </ul>
                     </nav>
                 </div>

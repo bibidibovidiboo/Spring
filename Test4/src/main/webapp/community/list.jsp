@@ -10,28 +10,28 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-.title {
-	font-size: 32px;
-	margin: 32px auto;
+.row {
+   margin: 0px auto;
+   width:900px;
 }
-.cboard {
-	padding: 35px 0;
+h1 {
+    text-align: center;
 }
 </style>
 </head>
 <body>
-   <div class="container cboard">
+   <div class="container">
      <div class="row">
-       <h1 class="title">커뮤니티 게시판</h1>
+       <h1>커뮤니티 게시판</h1>
        <table class="table">
          <tr>
            <td>
-             <a href="insert.do" class="btn btn-sm btn-warning">새글</a>
+             <a href="insert.do" class="btn btn-sm btn-primary">새글</a>
            </td>
          </tr>
        </table>
        <table class="table table-striped">
-         <tr class="warning">
+         <tr class="danger">
            <th class="text-center" width=10%>번호</th>
            <th class="text-center" width=45%>제목</th>
            <th class="text-center" width=15%>이름</th>
@@ -60,9 +60,9 @@
        </table>
        <table class="table">
          <td class="text-center">
-          <a href="#" class="btn btn-sm btn-warning">이전</a>
+          <a href="#" class="btn btn-sm btn-primary">이전</a>
           ${curpage } page / ${totalpage } pages
-          <a href="#" class="btn btn-sm btn-warning">다음</a>
+          <a href="#" class="btn btn-sm btn-primary">다음</a>
          </td>
        </table>
      </div>
