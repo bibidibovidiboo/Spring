@@ -111,8 +111,8 @@
                                     <li><a href="#">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="../recipe/list.do">Blog</a></li>
+                            <li><a href="../fight/list.do">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
