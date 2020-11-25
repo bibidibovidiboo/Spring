@@ -5,6 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.header__logo {
+    left: 47%;
+    top: 22px;
+    width: 210px;
+</style>
 </head>
 <body>
     <!-- Page Preloder -->
@@ -75,17 +81,17 @@
                                 </ul>
                             </div>
                             <div class="header__logo">
-                                <a href="../main/main.do"><img src="../img/logo.png" alt=""></a>
+                                <a href="../main/main.do"><img src="../img/logo2.png" alt=""></a>
                             </div>
                             <div class="header__top__right">
                                 <div class="header__top__right__links">
                                     <a href="#" class="search-switch"><img src="../img/icon/search.png" alt=""></a>
                                     <a href="#"><img src="../img/icon/heart.png" alt=""></a>
                                 </div>
-                                <div class="header__top__right__cart">
+                                <!-- <div class="header__top__right__cart">
                                     <a href="#"><img src="../img/icon/cart.png" alt=""> <span>0</span></a>
                                     <div class="cart__price">Cart: <span>$0.00</span></div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -106,13 +112,14 @@
                                     <li><a href="#">Shop Details</a></li>
                                     <li><a href="#">Shoping Cart</a></li>
                                     <li><a href="#">Check Out</a></li>
-                                    <li><a href="#">Wisslist</a></li>
+                                    <li><a href="#">Wishlist</a></li>
                                     <li><a href="#">Class</a></li>
                                     <li><a href="#">Blog Details</a></li>
                                 </ul>
                             </li>
                             <li><a href="../recipe/list.do">Blog</a></li>
                             <li><a href="../fight/list.do">Contact</a></li>
+                            <li><a href="#">Community</a></li>
                         </ul>
                     </nav>
                 </div>
