@@ -4,7 +4,7 @@ import java.sql.*;
 public class FoodDAO {
 	private Connection conn;
 	private PreparedStatement ps;
-	private final String URL="jdbc:oracle:thin:@211.238.142.181:1521:XE";
+	private final String URL="jdbc:oracle:thin:@211.238.142.204:1521:XE";
 	public FoodDAO()
 	{
 		try

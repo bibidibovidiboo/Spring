@@ -3,7 +3,6 @@ package com.sist.web;
 import org.rosuda.REngine.Rserve.RConnection;
 import org.springframework.stereotype.Component;
 // C:\springDev\springStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\OnLineSpringLastProject
-// C:\Users\rkqtj\Spring\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\OnLineSpringLastProject
 @Component
 public class RManager {
   public void graph(int no)
