@@ -15,7 +15,7 @@ public class RManager {
 		  rc.voidEval("library(wordcloud)");
 		  
 		  rc.voidEval("data<-readLines(\"c:/upload/naver.txt\",encoding = \"UTF-8\")");
-		  rc.voidEval("png(\"C:/springDev/springStudy/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/OnLineSpringLastProject/naver"+no+".png\",width=450,height=450)");
+		  rc.voidEval("png(\"C:/Users/rkqtj/Spring/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/OnLineSpringLastProject/naver"+no+".png\")");
 		  rc.voidEval("data1<-sapply(data, extractNoun,USE.NAMES = F)");
 		  rc.voidEval("data2<-unlist(data1)");
 		  rc.voidEval("data3<-Filter(function(x){nchar(x)>=2},data2)");

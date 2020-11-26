@@ -11,7 +11,7 @@ public class ReplyDAO {
   private Connection conn;
   private CallableStatement cs;
   private PreparedStatement ps;
-  private final String URL="jdbc:oracle:thin:@211.238.142.181:1521:XE";
+  private final String URL="jdbc:oracle:thin:@211.238.142.204:1521:XE";
   public ReplyDAO()
   {
 	  try
