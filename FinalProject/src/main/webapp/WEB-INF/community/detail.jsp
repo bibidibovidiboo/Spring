@@ -7,10 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<style type="text/css">
-
-</style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 let i=0;
@@ -33,11 +29,15 @@ $(function(){
 	});
 });
 </script>
+<style type="text/css">
+.detail-box {
+	margin-top: 55px;
+}
+</style>
 </head>
 <body>
    <div class="container">
-     <div class="row">
-      <h1 class="title">내용보기</h1>
+     <div class="row detail-box">
       <table class="table table-striped">
         <tr>
           <th width=20% class="text-center danger">번호</th>
@@ -129,6 +129,3 @@ $(function(){
    </div>
 </body>
 </html>
-
-
-

@@ -5,22 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-.row {
-   margin: 0px auto;
-   width:700px;
-}
-h1 {
-   text-align: center;
+.update-box {
+	padding: 50px 0 34px 220px;
 }
 </style>
-
 </head>
 <body>
   <div class="container">
-    <div class="row">
-     <h1>수정하기</h1>
+    <div class="row update-box">
+<!--      <h1>수정하기</h1> -->
      <form method=post action="update_ok.do">
      <table class="table">
        <tr>

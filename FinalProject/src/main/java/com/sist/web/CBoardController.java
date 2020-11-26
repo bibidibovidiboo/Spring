@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.sist.dao.*;
 
 @Controller
-// forward,sendRedirect  => 파일명=> 전송 (<script>사용할 수 없다)
-// @RestController를 사용 
+
 @RequestMapping("community/")
 public class CBoardController {
    @Autowired
@@ -68,7 +67,6 @@ public class CBoardController {
    @RequestMapping("update_ok.do")
    public String board_update_ok(CBoardVO vo,Model model)
    {
-	   // DAO연동
 	   boolean bCheck=dao.boardUpdate(vo);
 	   model.addAttribute("bCheck", bCheck);
 	   model.addAttribute("no", vo.getNo());
@@ -90,28 +88,10 @@ public class CBoardController {
 	   return "community/delete_ok";
    }
    
-   @RequestMapping("login.do")
-   public String board_login()
-   {
-	   return "community/login";
-   }
-   
-   @RequestMapping("login_ok.do")
-   public String board_login_ok(String id,String pwd,Model model,HttpSession session)
-   {
-	   MemberVO vo=dao.memberLogin(id, pwd);
-	   if(vo.getMessage().equals("OK"))
-	   {
-		   session.setAttribute("id", id);
-		   session.setAttribute("name", vo.getName());
-	   }
-	   model.addAttribute("msg", vo.getMessage());
-	   return "community/login_ok";
-   }
    @RequestMapping("reply_insert.do")
    public String replyInsert(CReplyVO vo,HttpSession session)
    {
-	   // cno , msg
+	   
 	   vo.setId((String)session.getAttribute("id"));
 	   vo.setName((String)session.getAttribute("name"));
 	   vo.setType(3);
@@ -133,12 +113,24 @@ public class CBoardController {
 	   return "redirect:detail.do?no="+cno;
    }
    
+   // 로그인 
+   @RequestMapping("login.do")
+   public String board_login()
+   {
+	   return "community/login";
+   }
+   
+   @RequestMapping("login_ok.do")
+   public String board_login_ok(String id,String pwd,Model model,HttpSession session)
+   {
+	   MemberVO vo=dao.memberLogin(id, pwd);
+	   if(vo.getMessage().equals("OK"))
+	   {
+		   session.setAttribute("id", id);
+		   session.setAttribute("name", vo.getName());
+	   }
+	   model.addAttribute("msg", vo.getMessage());
+	   return "community/login_ok";
+   }
+   
 }
-
-
-
-
-
-
-
-

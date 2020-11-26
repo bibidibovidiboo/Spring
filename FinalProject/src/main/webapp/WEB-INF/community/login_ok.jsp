@@ -15,7 +15,7 @@
     </script>
   </c:when>
   <c:otherwise>
-    <c:redirect url="list.do"/>
+    <c:redirect url="main.do"/>
   </c:otherwise>
 </c:choose>
 

@@ -16,19 +16,13 @@ public class CBoardDAO {
     private DBConnection dbConn;
 	private CallableStatement cs;//Procedure
 	private PreparedStatement ps;//SQL
+	
+	// 커뮤니티 게시판
 	public List<CBoardVO> boardListData(int page)
 	{
 		System.out.println("BoardDAO:"+dbConn);
 		List<CBoardVO> list=new ArrayList<CBoardVO>();
-		// dbConn.getConnection()
-		/*
-		 *   CREATE OR REPLACE PROCEDURE projetBoardListData(
-			   pStart NUMBER,
-			   pEnd NUMBER,
-			   pResult OUT SYS_REFCURSOR,
-			   pTotal OUT NUMBER
-			)
-		 */
+		
 		try
 		{
 			String sql="{CALL communityBoardListData(?,?,?)}";
@@ -58,15 +52,7 @@ public class CBoardDAO {
 		// dbConn.disConnection
 		return list;
 	}
-	/*
-	 *   CREATE OR REPLACE PROCEDURE projectBoardInsert(
-		   pName project_board.name%TYPE,
-		   pSubject project_board.subject%TYPE,
-		   pContent project_board.content%TYPE,
-		   pPwd project_board.pwd%TYPE
-		)
-		IS
-	 */
+	
 	public void boardInsert(CBoardVO vo)
 	{
 		try
@@ -81,12 +67,7 @@ public class CBoardDAO {
 			cs.executeQuery();
 		}catch(Exception ex){}
 	}
-	/*
-	 *   CREATE OR REPLACE PROCEDURE projectBoardDetailData(
-		   pNo project_board.no%TYPE,
-		   pResult OUT SYS_REFCURSOR
-		)
-	 */
+	
 	public CBoardVO boardDetailData(int no)
 	{
 		CBoardVO vo=new CBoardVO();
@@ -112,21 +93,7 @@ public class CBoardDAO {
 		// disConnection() => @After
 		return vo;
 	}
-	/*
-	 *   수정 데이터 읽기
-	 *   CREATE OR REPLACE PROCEDURE projectBoardUpdateData(
-		   pNo project_board.no%TYPE,
-		   pResult OUT SYS_REFCURSOR
-		)
-		IS
-		BEGIN
-		   OPEN pResult FOR
-		     SELECT no,name,subject,content 
-		     FROM project_board
-		     WHERE no=pNo;
-		END;
-		/
-	 */
+	
 	public CBoardVO boardUpdateData(int no)
 	{
 		CBoardVO vo=new CBoardVO();
@@ -148,40 +115,12 @@ public class CBoardDAO {
 			vo.setSubject(rs.getString(3));
 			vo.setContent(rs.getString(4));
 			rs.close();
-			// Client => DAO(X)
-			// Client <===> Model <===> DAO
+			
 		}catch(Exception ex){/*AfterThrowing*/} // AOP에서 처리 
 		// disConnection() => After
 		return vo; // AfterReturning
 	}
-	/*
-	 *  CREATE OR REPLACE PROCEDURE projectBoardUpdate(
-		   pNo project_board.no%TYPE,
-		   pName project_board.name%TYPE,
-		   pSubject project_board.subject%TYPE,
-		   pContent project_board.content%TYPE,
-		   pPwd project_board.pwd%TYPE,
-		   pResult OUT project_board.name%TYPE
-		)
-		IS
-		  vPwd project_board.pwd%TYPE;
-		BEGIN 
-		  SELECT pwd INTO vPwd
-		  FROM project_board
-		  WHERE no=pNo;
-		  
-		  IF(vPwd=pPwd) THEN
-		   pResult:='true';
-		   UPDATE project_board SET
-		   name=pName,subject=pSubject,content=pContent
-		   WHERE no=pNo;
-		   COMMIT;
-		  ELSE
-		   pResult:='false';
-		  END IF;
-		END;
-		/
-	 */
+	
 	public boolean boardUpdate(CBoardVO vo)
 	{
 		boolean bCheck=false;
@@ -208,30 +147,7 @@ public class CBoardDAO {
 		// System.out.println("obj="+obj);
 		return bCheck;
 	}
-	/*
-	 *   CREATE OR REPLACE PROCEDURE projectBoardDelete(
-			   pNo project_board.no%TYPE,
-			   pPwd project_board.pwd%TYPE,
-			   pResult OUT project_board.name%TYPE
-			)
-			IS
-			  vPwd project_board.pwd%TYPE;
-			BEGIN
-			  SELECT pwd INTO vPwd
-			  FROM project_board
-			  WHERE no=pNo;
-			  
-			  IF(vPwd=pPwd) THEN
-			    pResult:='true';
-			    DELETE FROM project_board 
-			    WHERE no=pNo;
-			    COMMIT;
-			  ELSE
-			    pResult:='false';
-			  END IF;
-			END;
-			/
-	 */
+	
 	public boolean boardDelete(int no,String pwd)
 	{
 		boolean bCheck=false;
@@ -261,33 +177,12 @@ public class CBoardDAO {
 			total=rs.getInt(1);
 			rs.close();
 			ps.close();
-			/*
-			 *   PROCEDURE => {CALL pro_name()}
-			 *   FUNCTION => SELECT func_name() ~
-			 */
+			
 		}catch(Exception ex){}
 		return total;
 	}
-	// 댓글 
-	/*
-	 *   CREATE OR REPLACE PROCEDURE replyListData(
-		   pType project_reply.type%TYPE,
-		   pCno project_reply.cno%TYPE,
-		   pStart NUMBER,
-		   pEnd NUMBER,
-		   pResult OUT SYS_REFCURSOR
-		)
-		IS
-		BEGIN
-		   OPEN pResult FOR
-		    SELECT no,type,cno,id,name,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),num
-		    FROM (SELECT no,type,cno,id,name,msg,regdate,rownum as num
-		    FROM (SELECT no,type,cno,id,name,msg,regdate
-		    FROM project_reply WHERE type=pType AND cno=pCno ORDER BY no DESC))
-		    WHERE num BETWEEN pStart AND pEnd;
-		END;
-		/
-	 */
+	
+	// 게시판 댓글 
 	public List<CReplyVO> replyListData(int type,int cno,int page)
 	{
 		List<CReplyVO> list=
@@ -325,26 +220,7 @@ public class CBoardDAO {
 		// dbConn.disConnection()
 		return list;
 	}
-	/*
-	 *   CREATE OR REPLACE PROCEDURE replyInsert(
-		   pType project_reply.type%TYPE,
-		   pCno project_reply.cno%TYPE,
-		   pId project_reply.id%TYPE,
-		   pName project_reply.name%TYPE,
-		   pMsg project_reply.msg%TYPE
-		)
-		IS
-		  vNo project_reply.no%TYPE;
-		BEGIN
-		  SELECT NVL(MAX(no)+1,1) INTO vNo
-		  FROM project_reply;
-		  
-		  INSERT INTO project_reply(no,type,cno,id,name,msg)
-		  VALUES(vNo,pType,pCno,pId,pName,pMsg);
-		  COMMIT;
-		END;
-		/
-	 */
+	
 	public void replyInsert(CReplyVO vo)
 	{
 		// dbConn.getConnection()
@@ -362,20 +238,7 @@ public class CBoardDAO {
 		}catch(Exception ex){}
 		//dbConn.disConnection()
 	}
-	/*
-	 *   CREATE OR REPLACE PROCEDURE replyUpdate(
-		   pNo project_reply.no%TYPE,
-		   pMsg project_reply.msg%TYPE
-		)
-		IS
-		BEGIN
-		  UPDATE project_reply SET
-		  msg=pMsg
-		  WHERE no=pNo;
-		  COMMIT;
-		END;
-		/
-	*/
+	
 	public void replyUpdate(int no,String msg)
 	{
 		try
@@ -387,19 +250,7 @@ public class CBoardDAO {
 			cs.executeQuery();
 		}catch(Exception ex){}
 	}
-	/*
-		-- 삭제 
-		CREATE OR REPLACE PROCEDURE replyDelete(
-		   pNo project_reply.no%TYPE
-		)
-		IS
-		BEGIN
-		  DELETE FROM project_reply
-		  WHERE no=pNo;
-		  COMMIT;
-		END;
-		/
-	 */
+	
 	public void replyDelete(int no)
 	{
 		try
@@ -411,7 +262,7 @@ public class CBoardDAO {
 		}catch(Exception ex){}
 	}
 	
-	// 로그인 
+	// 로그인 부분
 	public MemberVO memberLogin(String id,String pwd)
 	{
 		MemberVO vo=new MemberVO();

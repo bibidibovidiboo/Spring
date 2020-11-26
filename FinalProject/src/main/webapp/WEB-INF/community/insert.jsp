@@ -5,9 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-.wform {
+.w-box {
 	padding: 70px 0;
 	margin: 0px auto;
    	width: 510px;
@@ -16,7 +15,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="row wform">
+    <div class="row w-box">
      <!-- <h1>글쓰기</h1> -->
      <form method=post action="insert_ok.do">
      <table class="table">
@@ -59,5 +58,3 @@
   </div>
 </body>
 </html>
-
-
