@@ -8,8 +8,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <c:forEach var="s" items="${ss }">
-      <span class="btn btn-xs btn-warning">${s }</span>&nbsp;
-    </c:forEach>
+<div class="latest-products">
+      <div style="height: 130px"></div>
+      <div class="container">
+        <div class="row">
+		    <c:forEach var="s" items="${ss }">
+		      <span class="btn btn-xs btn-warning"><a href="../recommand/find.do?fd=${s }">${s }</a></span>&nbsp;
+		    </c:forEach>
+		</div>
+		<div style="height: 15px"></div>
+		<div class="row" id="print">
+		 
+		</div>
+      </div>
+</div>
+    
 </body>
 </html>
+
+
