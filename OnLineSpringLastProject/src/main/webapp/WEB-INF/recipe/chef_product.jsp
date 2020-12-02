@@ -11,7 +11,7 @@
 <div class="latest-products">
       <div style="height:130px"></div>
       <div class="container">
-        <div class="row">
+       <div class="row">
           <form method="post" action="../recipe/chef_product.do">
 	          <input type=hidden name="chef" value="${chef}">
 	          <input type=text name="fd" class="input-sm" size=20>
@@ -33,8 +33,9 @@
 	            </div>
 	          </div>
           </c:forEach>
-        </div>
+        </div> 
       </div>
+      <script src="chef.js"></script>
 </div>
 </body>
 </html>

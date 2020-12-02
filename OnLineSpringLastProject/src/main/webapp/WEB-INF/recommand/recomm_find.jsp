@@ -11,9 +11,9 @@
          <c:forEach var="vo" items="${fList }">
 	          <div class="col-md-4">
 	            <div class="product-item">
-	              <a href="#"><img src="${vo.poster }" alt=""></a>
+	              <a href="../food/food_detail.do?no=${vo.no }"><img src="${vo.poster }" alt=""></a>
 	              <div class="down-content">
-	                <a href="#"><h4>${vo.title }</h4></a>
+	                <a href="../food/food_detail.do?no=${vo.no }"><h4>${vo.title }</h4></a>
 	              </div>
 	            </div>
 	          </div>

@@ -6,6 +6,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.recomm').hover(function(){
+		$(this).css("cursor","pointer");
+	},function(){
+		$(this).css("cursor","");
+	});
+	
+	$('.recomm').click(function(){
+		let fd=$(this).attr("value");
+		$.ajax({
+			type:'post',
+			url:'../recommand/find.do',
+			data:{"fd":fd},
+			success:function(res)
+			{
+				$('#print').html(res);
+			}
+		});
+	});
+})
+</script>
 </head>
 <body>
 <div class="latest-products">
