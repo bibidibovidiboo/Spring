@@ -44,6 +44,7 @@
            </table>
          </div> --%>
         </div>
+        
         <script src="../recipe/news.js"></script>
  </div>
 </body>
