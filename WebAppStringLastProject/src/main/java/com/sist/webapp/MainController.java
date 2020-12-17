@@ -1,7 +1,5 @@
 package com.sist.webapp;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,15 +31,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *        
  */
 import java.util.*;
+
+import javax.annotation.Resource;
+
 import com.sist.dao.*;
+import com.sist.news.*;
 @Controller
 // web=>Spring을 이용해서 web프로그램 제작 
 @RequestMapping("food/")
 public class MainController {
-   // DAO의 객체를 받는다 
+   // DAO의 객체를 받는다  @Autowired , @Resource(name="id명")(많이 사용)
    @Autowired
    private FoodDAO dao;
-   
+   @Resource(name="mgr")
+   private NewsManager mgr;
    @RequestMapping("list.do")
    public String food_category(String no,Model model)
    {
@@ -75,30 +78,70 @@ public class MainController {
 	   return "list";
    }
    @RequestMapping("food.do")
-   public String food_food_list(int cateno,Model model) {
+   public String food_food_list(int cateno,Model model)
+   {
 	   List<FoodDetailVO> list=dao.foodCategoryDetailData(cateno);
-	   model.addAttribute("list",list);
+	   model.addAttribute("list", list);
 	   return "food";
    }
-   
-   @RequestMapping(value="kotlin_food.do",produces="text/plain;charset=UTF-8")
-   public String food_kotlin_food(int cateno) {
-	   String result="";
-	   try {
-		   List<FoodDetailVO> list=dao.foodCategoryDetailData(cateno);
-		   // list에 존재하는 데이터를 JSON으로 변경
-		   JSONArray arr=new JSONArray();
-		   for(FoodDetailVO vo:list) {
-			   JSONObject obj=new JSONObject();
-			   obj.put("no", vo.getNo());
-			   obj.put("title", vo.getTitle());
-			   obj.put("score",vo.getScore());
-			   obj.put("poster",vo.getPoster());
-			   obj.put("addr",vo.getAddr());
-			   obj.put("tel", vo.getTel());
-			   arr.add(obj);
-		   }
-	   }catch(Exception ex) {}
-	   return result;
+   /*
+    *    RequestMapping
+    *    GetMapping
+    *    PostMapping 
+    *    =================== 메뉴 설정 (메뉴의 종류)
+    *    
+    *    => JSP   ===> DispatcherServlet ===> Model  ===> DAO
+    *      =====      ==================      ===============
+    *      손님      ===>       매니저(서빙)  =====>           주방 
+    *          detail.do  <==> @RequestMapping  <==> 처리
+    *                                  FoodDetailVO vo=dao.foodDetailData(no);
+    *               model.addAttribute("vo", vo); 
+    *          
+    */
+   @RequestMapping("detail.do")
+   public String food_detail(int no,Model model)
+   {
+	   // 클라이언트 요청한 데이터 읽기 => 오라클 
+	   FoodDetailVO vo=dao.foodDetailData(no);
+	   model.addAttribute("vo", vo);
+	   return "detail";
+   }
+   // 디지캡 => 입사하고 => 부서 변경 (Front-end , AI , 데이터베이스)
+   // 모든 업체 => SI,SM,솔루션,프레임워크 => 핸드소프트 , SQI(3000)
+   @RequestMapping("news.do")
+   /*
+    *    news.do  ==>  (fd==null)
+    *    news.do?fd=   (fd=="")
+    */
+   public String food_news(String fd,Model model)
+   {
+	   if(fd==null || fd.equals(""))
+		      fd="맛집";
+	   // 데이터 읽기 
+	   List<Item> list=mgr.newsListData(fd);
+	   // 데이터 보내기 
+	   model.addAttribute("list", list);
+	   return "news";
    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

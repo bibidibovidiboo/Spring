@@ -16,8 +16,31 @@ public interface FoodMapper {
    public List<FoodCategoryVO> foodCategoryData(Map map);
    // 2. Category별 맛집 찾기
    @Select("SELECT poster,title,no,score,addr,tel "
-		   +"FROM food_detail "
-		   +"WHERE cateno=#{cateno}")
+		  +"FROM food_detail "
+		  +"WHERE cateno=#{cateno}")
    public List<FoodDetailVO> foodCategoryDetailData(int cateno);
    // 3. 맛집 상세보기 
+   /*
+    *   private int no,cateno,good,soso,bad;
+        private String poster,title,score,addr,tel,type,price,menu;
+    */
+   @Select("SELECT * FROM food_detail "
+		  +"WHERE no=#{no}")
+   // MyBatis에 자동 구현 
+   //     ============               ========
+   // XML  resultType                parameterType
+   public FoodDetailVO foodDetailData(int no);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
