@@ -7,8 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-   
+<body>  
    <c:if test="${count==0 }">
      <h3 class="text-center">검색결과가 없습니다</h3>
    </c:if>
